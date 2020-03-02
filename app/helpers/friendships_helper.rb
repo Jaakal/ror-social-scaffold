@@ -1,6 +1,5 @@
 module FriendshipsHelper
-
-  def check_friendship_relation user
+  def check_friendship_relation(user)
     @sender.each do |friendship_record|
       return true if friendship_record.friend_id == user.id
     end
