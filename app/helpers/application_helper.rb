@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include FriendshipsHelper
+  
   def menu_link_to(link_text, link_path)
     class_name = current_page?(link_path) ? 'menu-item active' : 'menu-item'
 
@@ -14,5 +16,9 @@ module ApplicationHelper
     else
       link_to('Like!', post_likes_path(post_id: post.id), method: :post)
     end
+  end
+
+  def send_request(user_id)
+    Friendship.create(friendable_id: current_user.id, friend_id: user_id)
   end
 end

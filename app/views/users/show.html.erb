@@ -6,4 +6,7 @@
       <%= render @posts %>
     </ul>
   </article>
+  <% if current_user && current_user.id != @user.id && !check_friendship_relation(@user) %>
+    <%= link_to 'Invite to Friendship', add_as_a_friend_path(@user.id), class: 'profile-link' %>
+  <% end %>
 </section>
