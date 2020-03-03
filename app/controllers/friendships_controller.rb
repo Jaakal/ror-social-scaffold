@@ -9,7 +9,7 @@ class FriendshipsController < ApplicationController
   def accept
     user = User.find(params[:user_id])
     friendship = Friendship.find_by(friendable_id: params[:user_id], friend_id: current_user.id)
-    friendship.update(status: 1)
+    friendship.update(status: true)
     flash[:notice] = "You have accepted #{user.name} as your friend!!!"
     redirect_back(fallback_location: root_path)
   end

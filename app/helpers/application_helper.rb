@@ -17,8 +17,4 @@ module ApplicationHelper
       link_to('Like!', post_likes_path(post_id: post.id), method: :post)
     end
   end
-
-  def send_request(user_id)
-    Friendship.create(friendable_id: current_user.id, friend_id: user_id)
-  end
 end

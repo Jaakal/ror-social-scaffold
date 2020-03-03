@@ -15,6 +15,6 @@ class UsersController < ApplicationController
   end
 
   def invitation
-    @invitations = Friendship.where(friend_id: current_user.id, status: 0)
+    @invitations = Friendship.where(friend_id: current_user.id, status: false)
   end
 end
