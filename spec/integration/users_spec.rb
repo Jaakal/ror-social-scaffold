@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.feature 'User', type: :feature do
   include Integration
   before(:each) do
-    User.destroy_all
     visit_page_and_fill_in_form
   end
   context 'Sign Up' do
