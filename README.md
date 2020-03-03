@@ -1,7 +1,3 @@
-# Scaffold for social media app with Ruby on Rails
-
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
-
 ## Built With
 
 - Ruby v2.7.0
@@ -9,12 +5,11 @@
 
 ## Live Demo
 
-TBA
-
+https://jaak-and-yair-social.herokuapp.com/
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+One has to clone the repository into her/his local computer.
 
 ### Prerequisites
 
@@ -37,8 +32,6 @@ Setup database with:
    rails db:migrate
 ```
 
-
-
 ### Usage
 
 Start server with:
@@ -55,15 +48,51 @@ Open `http://localhost:3000/` in your browser.
     rpsec --format documentation
 ```
 
-> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
-
 ### Deployment
 
-TBA
+If one wants to deploy it to Heroku, then one needs on the console in root directory of the project run commands in order shown below (current branch needs to be master):
+
+```
+heroku apps:create <app-name>
+
+git add .
+git commit -m "Deploy to Heroku"
+git push heroku master
+
+heroku run rails db:migrate
+heroku open
+
+```
+
 
 ## Authors
 
-TBA
+👤 **Yair Fernando Facio**
+
+<a href="https://yairfernando67.github.io/Portfolio/" target="_blank">
+    
+  ![Screenshot Image](app/assets/images/yair-profile.png) 
+
+</a>
+
+- Github: [@YairFernando67](https://github.com/YairFernando67)
+- Twitter: [@YairFernando18](https://twitter.com/YairFernando18)
+- Linkedin: [softwaredeveloperyairfacio](https://www.linkedin.com/in/softwaredeveloperyairfacio/)
+- Email: [yair.facio11@gmail.com](https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=yair.facio11@gmail.com)
+- Portfolio: [softwaredeveloper](https://yairfernando67.github.io/Portfolio/)
+
+👤 **Jaak Kivinukk**
+
+<a href="https://github.com/Jaakal" target="_blank">
+    
+  ![Screenshot Image](app/assets/images/jaak-profile.png) 
+
+</a>
+
+- Github: [@Jaakal](https://github.com/Jaakal)
+- Twitter: [@JKivinukk](https://twitter.com/JKivinukk)
+- Linkedin: [full-stack-developer](https://www.linkedin.com/in/jaak-kivinukk-7098b1153/)
+- Email: [jaak.kivinukk@gmail.com](jaak.kivinukk@gmail.com)
 
 ## 🤝 Contributing
 
@@ -77,9 +106,9 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-TBA
+Thanks to the Microverse for the whole experience!
 
 ## 📝 License
 
-TBA
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
