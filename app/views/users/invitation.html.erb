@@ -1,0 +1,16 @@
+<h1>Pending invitations</h1>
+
+<section class="users-section">
+  <ul class="users-list">
+    <% @invitations.each do |invitation| %>
+      <li>
+        Name: <%= invitation.sender.name %>
+        <span class="profile-link">
+          <%= link_to 'See Profile',  user_path(invitation.sender), class: 'profile-link' %>
+          <%= link_to 'Accept', accept_as_a_friend_path(invitation.sender), class: 'profile-link' %>
+          <%= link_to 'Decline', decline_as_a_friend_path(invitation.sender), class: 'profile-link' %>
+        </span>
+      </li>
+    <% end %>
+  </ul>
+</section>
