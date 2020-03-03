@@ -22,6 +22,12 @@ RSpec.describe 'Friendship', type: :model do
     expect(friendship.valid?).to be(true)
   end
 
+  it 'inverse relation gets created after accepting friendship request' do
+    friendship = Friendship.create(friendable_id: user1.id, friend_id: user2.id)
+    friendship.update(status: true)
+    expect(Friendship.exists?(friendable_id: user2.id, friend_id: user1.id)).to be(true)
+  end
+
   it 'relation gets not created with invalid params' do
     friendship = Friendship.create(friendable_id: '', friend_id: user2.id)
     expect(friendship.valid?).to be(false)
