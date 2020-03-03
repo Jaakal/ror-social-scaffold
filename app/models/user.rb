@@ -9,8 +9,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :recived_requests, foreign_key: :friendable_id, class_name: 'Friendship', dependent: :destroy
-  has_many :sent_requests, foreign_key: :friend_id, class_name: 'Friendship', dependent: :destroy
+  has_many :friendships, foreign_key: :friendable_id, class_name: 'Friendship', dependent: :destroy
+  has_many :inverse_friendships, foreign_key: :friend_id, class_name: 'Friendship', dependent: :destroy
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
