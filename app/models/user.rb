@@ -6,10 +6,19 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 20 }
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :friendships
-  has_many :recived_requests, foreign_key: :friendable_id, class_name: 'Friendship'
-  has_many :sent_requests, foreign_key: :friend_id, class_name: 'Friendship'
+  has_many :recived_requests, foreign_key: :friendable_id, class_name: 'Friendship', dependent: :destroy
+  has_many :sent_requests, foreign_key: :friend_id, class_name: 'Friendship', dependent: :destroy
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.name = auth.info.name
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+    end
+  end
 end
